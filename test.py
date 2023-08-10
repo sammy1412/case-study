@@ -167,7 +167,7 @@ optionButton2.place(x=960, y=615)
 
 
 optionButton3 =Button(window,text = third_option[0], font = ('Monoton',20, 'bold'),bg='#163A6C', fg='white', bd= '0', 
-                      activebackground= '163A6C', activeforeground='white', cursor='hand2')
+                      activebackground= '#163A6C', activeforeground='white', cursor='hand2')
 optionButton3.place(x=280, y=735)
 
 
