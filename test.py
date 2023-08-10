@@ -5,7 +5,7 @@ from tkinter import messagebox
 from PIL import ImageTk, Image
 
 window = Tk()
-window.title('game')
+window.title('QUIZ GAME')
 window.geometry('1600x900')
 window.config(bg="black")
 backgroundimage = ImageTk.PhotoImage(Image.open("layout.png")) 
@@ -137,7 +137,7 @@ data = myfile.read()
 fourth_option = data.split("\n")
 myfile.close()
 
-#frame-----------------------------------
+#layout, button, image-----------------------------------
 
 
 loseimage = ImageTk.PhotoImage(Image.open("lose.png")) 
