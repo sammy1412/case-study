@@ -144,7 +144,7 @@ loseimage = ImageTk.PhotoImage(Image.open("lose.png"))
 winimage = ImageTk.PhotoImage(Image.open("win.png")) 
 
 
-question_area = Text(window,font = ('Monoton', 35 , 'bold'),bg = "#120544", fg ="white", width =25, height =2, wrap = 'word',bd=0 )
+question_area = Text(window,font = ('Monoton', 30 , 'bold'),bg = "#120544", fg ="white", width =27, height =3, wrap = 'word',bd=0 )
 question_area.place(x=470, y =400)
 question_area.insert(END, questions[0])
 
