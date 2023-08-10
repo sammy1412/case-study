@@ -5,8 +5,11 @@ from PIL import ImageTk, Image
 
 window = Tk()
 window.title('game')
-window.geometry('1200x1000')
-window.config(bg = 'black')
+window.geometry('1600x900')
+window.config(bg="black")
+backgroundimage = ImageTk.PhotoImage(Image.open("layout.png")) 
+windowLabel =Label(window, image= backgroundimage)
+windowLabel.pack()
 
 def select(event):
     b=event.widget
@@ -33,23 +36,19 @@ def select(event):
                 root1 = Toplevel()
                 root1.overrideredirect(True)
                 root1.config(bg="black")
-                root1.geometry('500x400+140+30')
+                root1.geometry('700x400+600+350')
                 root1.title('Result')
-                root1Label =Label(root1, image= centerimage, bd ='0')
+                root1Label =Label(root1, image= winimage, bd ='0')
                 root1Label.pack(pady =5)
 
-                winLabel= Label(root1, text = 'You WON', font = ('arial',40, 'bold'), bg= 'black',fg='white')
-                winLabel.pack()
+                playagainButton = Button(root1, text = "Play Again", 
+                font = ('arial',20, 'bold'), bg= 'black',fg='white', bd =3, command= playagain)
+                playagainButton.place(x= 270, y =240)
 
-                playagainButton = Button(root1, text = "Play again", 
-                    font = ('arial',20, 'bold'), bg= 'black',fg='white', command= playagain)
-                playagainButton.pack()
-
-                closeButton = Button(root1,text = "Close", 
-                    font = ('arial',20,'bold'), bg = 'black', fg = 'white',
-                    activebackground= 'black', activeforeground= 'white', 
-                    bd= 0, cursor = 'hand2', command= close)
-                closeButton.pack()
+                closeButton = Button(root1,text = "Exit", 
+                font = ('arial',10,'bold'), bg = 'blue', fg = 'white',
+                activebackground= 'black', activeforeground= 'white',bd=5, cursor = 'hand2', command= close)
+                closeButton.place(x= 330, y =310)
             
                 root1.mainloop()
                 break
@@ -80,29 +79,25 @@ def select(event):
             root = Toplevel()
             root.overrideredirect(True)
             root.config(bg="black")
-            root.geometry('500x400+140+30')
+            root.geometry('700x400+600+350')
             root.title('Result')
-            rootLabel =Label(root, image= centerimage, bd ='0')
+            rootLabel =Label(root, image= loseimage, bd ='0')
             rootLabel.pack(pady =5)
 
-            loseLabel= Label(root, text = 'You lose', font = ('arial',40, 'bold'), bg= 'black',fg='white')
-            loseLabel.pack()
-
             tryagainButton = Button(root, text = "Try again", 
-                font = ('arial',20, 'bold'), bg= 'black',fg='white', command= tryagain)
-            tryagainButton.pack()
+                font = ('arial',20, 'bold'), bg= 'black',fg='white', bd =3, command= tryagain)
+            tryagainButton.place(x= 280, y =240)
 
-            closeButton = Button(root,text = "Close", 
-                font = ('arial',20,'bold'), bg = 'black', fg = 'white',
-                activebackground= 'black', activeforeground= 'white', 
-                bd= 0, cursor = 'hand2', command= close)
-            closeButton.pack()
-        
+            closeButton = Button(root,text = "Exit", 
+                font = ('arial',10,'bold'), bg = 'cyan', fg = 'black',
+                activebackground= 'black', activeforeground= 'white', width= 6, height= 1,
+                bd=6, cursor = 'hand2', command= close)
+            closeButton.place(x= 320, y = 340)
+            
             root.mainloop()
             break
         
-        
-
+    
 
 #data -------------------------
 #questions 
@@ -143,80 +138,43 @@ myfile.close()
 
 #frame-----------------------------------
 
-leftframe =Frame(window)
-leftframe.grid(row=0,column=0)
 
-topframe = Frame(leftframe)
-topframe.grid()
-
-centerframe = Frame(leftframe)
-centerframe.grid(row=1, column=0)
-
-bottomframe = Frame(leftframe)
-bottomframe.grid(row=2, column=0)
-
-rightframe = Frame(window)
-rightframe.grid(row=0, column=1)
-
-phoneimage = ImageTk.PhotoImage(Image.open("phone.jpg")) 
-
-phonelayoutlabel = Label(topframe, image = phoneimage)
-phonelayoutlabel.grid(row=0,column=0)
-
-phoneimage1 = ImageTk.PhotoImage(Image.open("phone.jpg")) 
-
-phonelayoutlabel1 = Label(topframe, image = phoneimage1)
-phonelayoutlabel1.grid(row=0,column=1)
-
-phoneimage2 = ImageTk.PhotoImage(Image.open("phone.jpg")) 
-
-phonelayoutlabel2 = Label(topframe, image = phoneimage2)
-phonelayoutlabel2.grid(row=0,column=2)
-
-centerimage = ImageTk.PhotoImage(Image.open("phone.jpg")) 
+loseimage = ImageTk.PhotoImage(Image.open("lose.png")) 
+winimage = ImageTk.PhotoImage(Image.open("win.png")) 
 
 
-layerimage = ImageTk.PhotoImage(Image.open("lay.png")) 
-
-layerlabel = Label(bottomframe, image = layerimage, bg='black')
-layerlabel.grid(row=0,column=0)
-
-rightimage = PhotoImage(file="picture0.png") 
-
-rightilabel = Label(rightframe, image = rightimage)
-rightilabel.grid(row=0,column=0)
-
-question_area = Text(bottomframe,bg='black',fg='orange', width =34, height =2, wrap = 'word',bd=0 )
-question_area.place(x=70, y =10)
+question_area = Text(window,font = ('Monoton', 35 , 'bold'),bg = "#120544", fg ="white", width =25, height =2, wrap = 'word',bd=0 )
+question_area.place(x=470, y =400)
 question_area.insert(END, questions[0])
 
-labelA=Label(bottomframe, text ='A', bg='black', fg='white')
-labelA.place(x=60,y=110)
+labelA =Label(window, text ='A', font = ('Monoton',30, 'bold'), bg='#163A6C', fg='white')
+labelA.place(x=240,y=615)
+labelB =Label(window, text ='B', font = ('Monoton',30, 'bold'),bg='#163A6C', fg='white')
+labelB.place(x=920,y=615)
+labelC =Label(window, text ='C', font = ('Monoton',30, 'bold'), bg='#163A6C', fg='white')
+labelC.place(x=240,y=735)
+labelD =Label(window, text ='D', font = ('Monoton',30, 'bold'), bg='#163A6C', fg='white')
+labelD.place(x=920,y=730)
 
-optionButton1 =Button(bottomframe,text = first_option[0],bg='black', fg='white', bd= '0', 
-                      activebackground= 'black', activeforeground='orange', cursor='hand2')
-optionButton1.place(x=100, y=100)
 
-labelB =Label(bottomframe, text ='B', bg='black', fg='white')
-labelB.place(x=330,y=110)
+optionButton1 =Button(window,text = first_option[0],font = ('Monoton',20, 'bold'),bg='#163A6C', fg='white', bd= '0', 
+                      activebackground= '#163A6C', activeforeground='white', cursor='hand2')
+optionButton1.place(x=280, y=615)
 
-optionButton2 =Button(bottomframe,text = second_option[0],bg='black', fg='white', bd= '0', 
-                      activebackground= 'black', activeforeground='orange', cursor='hand2')
-optionButton2.place(x=370, y=100)
 
-labelC =Label(bottomframe, text ='C', bg='black', fg='white')
-labelC.place(x=60,y=190)
+optionButton2 =Button(window,text = second_option[0],font = ('Monoton',20, 'bold'),bg='#163A6C', fg='white', bd= '0', 
+                      activebackground= '#163A6C', activeforeground='white', cursor='hand2')
+optionButton2.place(x=960, y=615)
 
-optionButton3 =Button(bottomframe,text = third_option[0],bg='black', fg='white', bd= '0', 
-                      activebackground= 'black', activeforeground='orange', cursor='hand2')
-optionButton3.place(x=100, y=180)
 
-labelD =Label(bottomframe, text ='D', bg='black', fg='white')
-labelD.place(x=330,y=190)
+optionButton3 =Button(window,text = third_option[0], font = ('Monoton',20, 'bold'),bg='#163A6C', fg='white', bd= '0', 
+                      activebackground= 'black', activeforeground='white', cursor='hand2')
+optionButton3.place(x=280, y=735)
 
-optionButton4 =Button(bottomframe,text = fourth_option[0],bg='black', fg='white', bd= '0', 
-                      activebackground= 'black', activeforeground='orange', cursor='hand2')
-optionButton4.place(x=370, y=180)
+
+optionButton4 =Button(window,text = fourth_option[0], font = ('Monoton',20, 'bold'),bg='#163A6C', fg='white', bd= '0', 
+                      activebackground= '#163A6C', activeforeground='white', cursor='hand2')
+optionButton4.place(x=960, y=730)
 
 
 optionButton1.bind('<Button-1>',select )
