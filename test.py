@@ -1,3 +1,4 @@
+# get 10 right consencutive answers you win!!!!!!!
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
@@ -39,7 +40,7 @@ def select(event):
                 root1.geometry('700x400+600+350')
                 root1.title('Result')
                 root1Label =Label(root1, image= winimage, bd ='0')
-                root1Label.pack(pady =5)
+                root1Label.pack()
 
                 playagainButton = Button(root1, text = "Play Again", 
                 font = ('arial',20, 'bold'), bg= 'black',fg='white', bd =3, command= playagain)
@@ -82,7 +83,7 @@ def select(event):
             root.geometry('700x400+600+350')
             root.title('Result')
             rootLabel =Label(root, image= loseimage, bd ='0')
-            rootLabel.pack(pady =5)
+            rootLabel.pack()
 
             tryagainButton = Button(root, text = "Try again", 
                 font = ('arial',20, 'bold'), bg= 'black',fg='white', bd =3, command= tryagain)
