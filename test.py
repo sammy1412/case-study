@@ -7,7 +7,6 @@ from PIL import ImageTk, Image
 window = Tk()
 window.title('QUIZ GAME')
 window.geometry('1600x900')
-window.config(bg="black")
 backgroundimage = ImageTk.PhotoImage(Image.open("layout.png")) 
 windowLabel =Label(window, image= backgroundimage)
 windowLabel.pack()
@@ -43,12 +42,11 @@ def select(event):
                 root1Label.pack()
 
                 playagainButton = Button(root1, text = "Play Again", 
-                font = ('arial',20, 'bold'), bg= 'black',fg='white', bd =3, command= playagain)
+                font = ('arial',20, 'bold'), bg= 'black',fg='white', bd =3,cursor = 'hand2', command= playagain)
                 playagainButton.place(x= 270, y =240)
 
                 closeButton = Button(root1,text = "Exit", 
-                font = ('arial',10,'bold'), bg = 'blue', fg = 'white',
-                activebackground= 'black', activeforeground= 'white',bd=5, cursor = 'hand2', command= close)
+                font = ('arial',10,'bold'), bg = 'blue', fg = 'white',activebackground= 'black',bd=5, cursor = 'hand2', command= close)
                 closeButton.place(x= 330, y =310)
             
                 root1.mainloop()
@@ -86,12 +84,12 @@ def select(event):
             rootLabel.pack()
 
             tryagainButton = Button(root, text = "Try again", 
-                font = ('arial',20, 'bold'), bg= 'black',fg='white', bd =3, command= tryagain)
+                font = ('arial',20, 'bold'), bg= 'black',fg='white',activebackground= 'black', activeforeground= 'white', bd = 3, cursor = 'hand2', command= tryagain)
             tryagainButton.place(x= 280, y =240)
 
             closeButton = Button(root,text = "Exit", 
                 font = ('arial',10,'bold'), bg = 'cyan', fg = 'black',
-                activebackground= 'black', activeforeground= 'white', width= 6, height= 1,
+                activebackground= 'black', activeforeground= 'white',width= 6, height= 1,
                 bd=6, cursor = 'hand2', command= close)
             closeButton.place(x= 320, y = 340)
             
@@ -169,7 +167,7 @@ optionButton2.place(x=960, y=615)
 
 
 optionButton3 =Button(window,text = third_option[0], font = ('Monoton',20, 'bold'),bg='#163A6C', fg='white', bd= '0', 
-                      activebackground= 'black', activeforeground='white', cursor='hand2')
+                      activebackground= '163A6C', activeforeground='white', cursor='hand2')
 optionButton3.place(x=280, y=735)
 
 
